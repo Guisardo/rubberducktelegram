@@ -1,7 +1,7 @@
 var apihost = process.env.API_HOST || 'rubberduckapi';
 var apiport = process.env.API_PORT || '80';
+var token = process.env.BOT_TOKEN || '';
 
-var token = '143097451:AAH4c7gNU9Wk9DCQB-Av43Tv7F4ugK4yFjw';
 var Bot = require('node-telegram-bot-api'),
     bot = new Bot(token, { polling: true });
 
