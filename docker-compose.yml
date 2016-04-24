@@ -9,7 +9,7 @@ core:
     restart: always
 
 api:
-    build: .
+    image: lucardo/rubberducktelegram
     links:
      - "core:rubberduckapi"
     restart: always
