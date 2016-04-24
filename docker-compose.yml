@@ -1,0 +1,15 @@
+data:
+    image: mongo
+    restart: always
+
+core:
+    image: lucardo/rubberduckapi
+    links:
+     - "data:mongodb"
+    restart: always
+
+api:
+    build: .
+    links:
+     - "core:rubberduckapi"
+    restart: always

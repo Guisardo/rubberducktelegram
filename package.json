@@ -1,0 +1,23 @@
+{
+  "name": "rubberducktelegram",
+  "version": "1.0.0",
+  "description": "Rubber Duck debugger service for Telegram",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guisardo/rubberducktelegram.git"
+  },
+  "author": "Guisardo",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Guisardo/rubberducktelegram/issues"
+  },
+  "homepage": "https://github.com/Guisardo/rubberducktelegram#readme",
+  "devDependencies": {
+    "node-telegram-bot-api": "^0.21.1",
+    "request": "^2.72.0"
+  }
+}
