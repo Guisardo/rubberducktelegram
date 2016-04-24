@@ -13,3 +13,5 @@ api:
     links:
      - "core:rubberduckapi"
     restart: always
+    environment:
+      BOT_TOKEN: '1234567890:abcde-fghijk'

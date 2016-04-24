@@ -9,6 +9,7 @@ This BOT is build for [docker hub](https://hub.docker.com/r/lucardo/rubberduckte
 This are the docker parameters and defaults:
   - API_HOST: rubberduckapi
   - API_PORT: 80
+  - BOT_TOKEN: '1234567890:abcde-fghijk'
 
 Or you could just use this [docker-compose.yml file](https://github.com/Guisardo/rubberducktelegram/blob/master/docker-compose.yml)
 
