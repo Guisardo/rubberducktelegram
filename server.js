@@ -26,7 +26,8 @@ var duckCall = function(msg) {
                 'reply_markup': {
                   'keyboard': [keyboard],
                   'resize_keyboard': true,
-                  'one_time_keyboard': true
+                  'one_time_keyboard': true,
+                  'selective': true
                 }
               });
             } else {
