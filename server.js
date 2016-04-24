@@ -8,7 +8,6 @@ var Bot = require('node-telegram-bot-api'),
 var request = require('request');
 
 var duckCall = function(msg) {
-  console.log(msg);
   if (msg.text === '' || (msg.text.length > 0 && msg.text[0] !== '/')) {
     request('http://' + apihost + '/dialog?duck_id=telegram:' + msg.chat.id +
         '&answer=' + msg.text,
