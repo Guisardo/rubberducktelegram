@@ -2,12 +2,13 @@ var apihost = process.env.API_HOST || 'rubberduckapi';
 var apiport = process.env.API_PORT || '80';
 var token = process.env.BOT_TOKEN || '';
 
-var Bot = require('node-telegram-bot-api'),
-    bot = new Bot(token, { polling: true });
+var TelegramBot = require('node-telegram-bot-api'),
+    bot = new TelegramBot(token, { polling: true });
 
 var request = require('request');
 
 var duckCall = function(msg) {
+  console.log(msg);
   if (msg.text === '' || (msg.text.length > 0 && msg.text[0] !== '/')) {
     request('http://' + apihost + '/dialog?duck_id=telegram:' + msg.chat.id +
         '&answer=' + msg.text,
@@ -31,7 +32,11 @@ var duckCall = function(msg) {
                 }
               });
             } else {
-              bot.sendMessage(msg.chat.id, botResponse);
+              bot.sendMessage(msg.chat.id, botResponse, {
+                'reply_markup': {
+                  'hide_keyboard': true
+                }
+              });
             }
           }
         });
@@ -49,4 +54,4 @@ bot.onText(/^\/reset.*/, function(msg, match) {
 
 bot.on('message', duckCall);
 
-console.log('bot server started...');
+console.log('bot server started...' + token + '...');
