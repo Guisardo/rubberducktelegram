@@ -36,6 +36,17 @@ var duckCall = function(msg) {
                   'hide_keyboard': true
                 }
               });
+              if (jsResponse.answer_type === 0) {
+                setTimeout(function() {
+                  bot.sendMessage(msg.chat.id, 'I do can send some mail with ' +
+                      'our conversation if you say /report or ' +
+                      'we can try everything again with /reset', {
+                    'reply_markup': {
+                      'hide_keyboard': true
+                    }
+                  });
+                }, 1000);
+              }
             }
           }
         });

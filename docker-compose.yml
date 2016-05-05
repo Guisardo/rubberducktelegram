@@ -10,7 +10,7 @@ services:
      - maildata:/var/mail
     volumes:
      - ../rubberduckapi/config/:/tmp/docker-mailserver/
-     - ../rubberduckapi/opendkim/:/tmp/docker-mailserver/opendkim/
+     - ../rubberduckapi/config/opendkim/:/tmp/docker-mailserver/opendkim/
     environment:
       MAIL_USER: rubberduck@duckie.me
       MAIL_PASS: pass
@@ -31,12 +31,12 @@ services:
      MAIL_PASS: pass
 
   bot:
-      build: .
-      links:
-       - "core:rubberduckapi"
-      restart: always
-      environment:
-       BOT_TOKEN: '1234567890:abcde-fghijk'
+    build: .
+    links:
+     - "core:rubberduckapi"
+    restart: always
+    environment:
+     BOT_TOKEN: 1234567890:abcde-fghijk
 
 volumes:
   maildata:
