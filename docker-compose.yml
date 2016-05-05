@@ -1,17 +1,43 @@
-data:
+version: '2'
+
+services:
+  mail:
+    image: tvial/docker-mailserver:v2
+    # build: .
+    hostname: mail
+    domainname: dockie.me
+    volumes:
+     - maildata:/var/mail
+    volumes:
+     - ../rubberduckapi/config/:/tmp/docker-mailserver/
+     - ../rubberduckapi/config/opendkim/:/tmp/docker-mailserver/opendkim/
+    environment:
+      MAIL_USER: rubberduck@duckie.me
+      MAIL_PASS: pass
+
+  data:
     image: mongo
     restart: always
 
-core:
+  core:
     image: lucardo/rubberduckapi
     links:
+     - "mail:mail"
      - "data:mongodb"
     restart: always
+    environment:
+     NODE_TLS_REJECT_UNAUTHORIZED: 0
+     MAIL_USER: rubberduck@duckie.me
+     MAIL_PASS: pass
 
-api:
+  bot:
     image: lucardo/rubberducktelegram
     links:
      - "core:rubberduckapi"
     restart: always
     environment:
-      BOT_TOKEN: '1234567890:abcde-fghijk'
+     BOT_TOKEN: 1234567890:abcde-fghijk
+
+volumes:
+  maildata:
+    driver: local

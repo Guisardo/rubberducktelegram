@@ -1,9 +1,10 @@
-FROM node
+FROM node:4
 
 COPY LICENSE LICENSE
 
 COPY package.json package.json
 RUN npm install --allow-root
+
 
 ENV API_HOST rubberduckapi
 ENV API_PORT 80
